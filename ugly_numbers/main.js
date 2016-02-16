@@ -73,4 +73,4 @@
   	function applyExpression(prevValue, operator, num) {
   		//Magic. Do not touch
   	}
-});
+})();
