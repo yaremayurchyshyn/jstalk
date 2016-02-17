@@ -66,8 +66,51 @@
 	    return generateNewExpression();
   	}
 
-  	function evalExpression(expression) {
-  		//Here be dragons
+  	function evalExpression( exp ) {
+
+		var plus  = function( x, y ){ return x + y }
+		,	minus = function( x, y ){ return x - y }
+		,	operations =
+			{
+				'+': plus,
+				'-': minus
+			}
+		,   calculate = function( x, y, operation )
+			{
+				return operations[ operation ]( x, y );
+			}
+		, 	result = exp[ 0 ] * 1;
+
+
+		//console.log( exp );
+		combineArray ( exp );
+
+		for( var i = 0; i < exp.length; i++ )
+		{
+			if ( i%2 !== 0 && exp[ i ] )
+			{
+				result = calculate( result * 1, exp[ i + 1 ] * 1, exp[ i ] );
+			}
+		}
+
+		function combineArray ( arr )
+		{
+			for( var i = 0; i < arr.length; i++ )
+			{
+				if ( i%2 !== 0 )
+				{
+					if ( !arr[i] )
+					{
+						arr[i-1] = arr[i-1] + arr[i+1];
+						arr.splice(i, 2);
+						return combineArray ( arr );
+					}
+				}
+			}
+		}
+
+		//console.log("result=",result);
+		return	result;
   	}
 
   	function applyExpression(prevValue, operator, num) {
