@@ -17,8 +17,7 @@
     function isUgly(num) {
         var uglyNumbers = [2, 3, 5, 7],
                 res = false;
-        for (var i = 0,
-                len = uglyNumbers.length; i < len; i++) {
+        for (var i = 0, len = uglyNumbers.length; i < len; i++) {
             var remainder = num % uglyNumbers[i];
             if (!remainder) {
                 res = true;
@@ -47,10 +46,8 @@
         function generateNewExpression() {
             if (operationsCount != 0) {
                 var newGeneratedExpressions = [];
-                for (var i = 0,
-                        leni = generatedExpressions.length; i < leni; i++) {
-                    for (var j = 0,
-                            lenj = operations.length; j < lenj; j++) {
+                for (var i = 0, leni = generatedExpressions.length; i < leni; i++) {
+                    for (var j = 0, lenj = operations.length; j < lenj; j++) {
                         var newArr = generatedExpressions[i].slice();
                         newArr.push(operations[j]);
                         newArr.push(str[str.length - (operationsCount)]);
