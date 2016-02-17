@@ -68,6 +68,9 @@
 
   	function evalExpression( exp ) {
 
+		//console.log( exp );
+		combineArray ( exp );
+
 		var plus  = function( x, y ){ return x + y }
 		,	minus = function( x, y ){ return x - y }
 		,	operations =
@@ -82,9 +85,6 @@
 		, 	result = exp[ 0 ] * 1;
 
 
-		//console.log( exp );
-		combineArray ( exp );
-
 		for( var i = 0; i < exp.length; i++ )
 		{
 			if ( i%2 !== 0 && exp[ i ] )
@@ -98,7 +98,7 @@
 			for( var i = 0; i < arr.length; i++ )
 			{
 				if ( i%2 !== 0 && !arr[ i ] )
-				{					
+				{
 					arr[ i-1 ] = arr[ i-1 ] + arr[ i+1 ];
 					arr.splice( i, 2 );
 					return combineArray ( arr );
