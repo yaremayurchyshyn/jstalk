@@ -97,14 +97,11 @@
 		{
 			for( var i = 0; i < arr.length; i++ )
 			{
-				if ( i%2 !== 0 )
-				{
-					if ( !arr[i] )
-					{
-						arr[i-1] = arr[i-1] + arr[i+1];
-						arr.splice(i, 2);
-						return combineArray ( arr );
-					}
+				if ( i%2 !== 0 && !arr[ i ] )
+				{					
+					arr[ i-1 ] = arr[ i-1 ] + arr[ i+1 ];
+					arr.splice( i, 2 );
+					return combineArray ( arr );
 				}
 			}
 		}
