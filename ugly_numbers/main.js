@@ -6,7 +6,7 @@
 	//011 -> 6 
 	//12345 -> 64
 
-	var input = '12345';
+	var input = '011';
 	var possibleExpressions = generateExpression(input);
 	var result = possibleExpressions.reduce(function(numOfUgly, expression) {
 		return isUgly(evalExpression(expression)) ? ++numOfUgly : numOfUgly;
